@@ -43,7 +43,7 @@ public class CreateUserUseCase {
             UserEntity user = userCreateApiMapper.mapApiModelToDomainEntity(userRequest,token);
             validateUser(user);
             UserEntity userSearch = findUserByEmailRepository.findUserByEmail(user.getEmail());
-            if(userSearch==null){
+            if(userSearch == null){
                  createUserRepository.create(user);
             }else{
                 throw new UserExistException(ExceptionTextEnum.USER_EXIST_EXCEPTION.getValue());

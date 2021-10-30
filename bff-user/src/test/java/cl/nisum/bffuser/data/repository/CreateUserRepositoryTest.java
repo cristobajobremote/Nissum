@@ -6,6 +6,7 @@ import cl.nisum.bffuser.data.datasource.impl.database.CreateUserDataSource;
 import cl.nisum.bffuser.domain.entity.ImmutableUserEntity;
 import cl.nisum.bffuser.domain.entity.UserEntity;
 import org.hibernate.exception.SQLGrammarException;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -22,8 +23,10 @@ public class CreateUserRepositoryTest {
 
     UserEntity userEntity;
 
+    @Before
     public void setUp(){
-        userEntity= ImmutableUserEntity.builder().setEmail("cristobalweisser@gmail.com").build();
+        userEntity= ImmutableUserEntity.builder().setEmail("cristobalweisser@gmail.com").
+                setName("Cristobal").setPassword("password").build();
     }
     @Test
     public void when_create_user_then_save(){
